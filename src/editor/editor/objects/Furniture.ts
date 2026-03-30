@@ -22,7 +22,8 @@ export class Furniture extends Sprite {
     public centerAngle: number;
     constructor(data: FurnitureData, id: number, attachedTo?: Graphics, attachedToLeft?: number, attachedToRight?: number, orientation = 0) {
 
-        let texture = Texture.from(`${endpoint}2d/${data.imagePath}`);
+        let texturePath = `/2d/${data.imagePath}.svg`;
+        let texture = Texture.from(texturePath);
         super(texture);
         this.resourcePath = data.imagePath;
         this.id = id;

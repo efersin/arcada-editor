@@ -18,7 +18,7 @@ export function FurnitureItem(item:IFurnitureData) {
             <Card onClick={() => add(item)} shadow="sm" p="lg">
                 <Card.Section style={{ height: 120, padding: 5 }}>
                     <Center>
-                        <Image src={`${endpoint}2d/${data.imagePath}`} fit="contain" height={115} alt={data.name} />
+                        <Image src={`/2d/${data.imagePath}.svg`} fit="contain" height={115} alt={data.name} />
                     </Center>
                 </Card.Section>
                 <Card.Section>

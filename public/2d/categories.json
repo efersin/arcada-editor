@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Bedroom",
+        "visible":true
+    },
+    {
+        "name": "Bathroom",
+        "visible":true
+    },
+    {
+        "name": "Kitchen",
+        "visible":true
+    },
+    {
+        "name": "Office",
+        "visible":true
+    },
+    {
+        "name": "Living Room",
+        "visible":true
+    },
+    {
+        "name": "Other",
+        "visible":true
+    },
+    {
+        "name":"Structural",
+        "visible":true
+    },
+    {
+        "name":"Wall",
+        "visible":false
+    }
+]
