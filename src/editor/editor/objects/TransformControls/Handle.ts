@@ -1,3 +1,4 @@
+import { WALL_THICKNESS } from "../../constants";
 import { Graphics, InteractionEvent } from "pixi.js";
 import { isMobile } from "react-device-detect";
 import { Point } from "../../../../helpers/Point";
@@ -53,7 +54,7 @@ export class Handle extends Graphics {
 
         this.startScale = { x: 0, y: 0 };
         this.targetStartCenterPoint = { x: 0, y: 0 };
-        this.localCoords = {x:0, y:0};
+        this.localCoords = { x: 0, y: 0 };
         this.mouseEndPoint = { x: 0, y: 0 };
 
         this.type = handleConfig.type;
@@ -179,31 +180,31 @@ export class Handle extends Graphics {
                     y: this.mouseEndPoint.y - this.mouseStartPoint.y
                 }
                 if (!this.target.xLocked) {
-                  this.target.position.x = viewportX(this.targetStartPoint.x + delta.x);
-                  this.target.position.y = viewportY(this.targetStartPoint.y + delta.y);
+                    this.target.position.x = viewportX(this.targetStartPoint.x + delta.x);
+                    this.target.position.y = viewportY(this.targetStartPoint.y + delta.y);
                 } else {
-                  let amount = (delta.x + delta.y) * 0.8;
-        
-                  //start of wall
-                  if (this.localCoords.x + amount <= WALL_THICKNESS * 0.5) {
-                    this.target.position.x = WALL_THICKNESS * 0.5;
-                  }
-                  //end of wall
-                  else if (
-                    this.localCoords.x + amount >=
-                    this.target.parent.length - this.target.width - WALL_THICKNESS * 0.5 //parent wall length
-                  ) {
-                    this.target.position.x =
-                      this.target.parent.length -
-                      this.target.width -
-                      WALL_THICKNESS * 0.5;
-                  }
-                  //meddle of wall
-                  else {
-                    this.target.position.x = this.localCoords.x + amount;
-                  }
-        
-                  // this.target.position.x = viewportX(this.targetStartPoint.x) + delta.x;
+                    let amount = (delta.x + delta.y) * 0.8;
+
+                    //start of wall
+                    if (this.localCoords.x + amount <= WALL_THICKNESS * 0.5) {
+                        this.target.position.x = WALL_THICKNESS * 0.5;
+                    }
+                    //end of wall
+                    else if (
+                        this.localCoords.x + amount >=
+                        (this.target.parent as any).length - this.target.width - WALL_THICKNESS * 0.5 //parent wall length
+                    ) {
+                        this.target.position.x =
+                            (this.target.parent as any).length -
+                            this.target.width -
+                            WALL_THICKNESS * 0.5;
+                    }
+                    //meddle of wall
+                    else {
+                        this.target.position.x = this.localCoords.x + amount;
+                    }
+
+                    // this.target.position.x = viewportX(this.targetStartPoint.x) + delta.x;
                 }
 
                 break;

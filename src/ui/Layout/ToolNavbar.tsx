@@ -4,7 +4,7 @@ import {
   Icon as TablerIcon,
   Armchair,
   BorderLeft,
-  ArrowBottomSquare,
+  GridDots,
   DeviceFloppy,
   Upload,
   Ruler2,
@@ -81,7 +81,7 @@ function AddMenu({ setter }) {
   const [drawerOpened, setDrawerOpened] = useState(false);
 
   const [modalOpened, setModalOpened] = useState(false);
-  const {getCategories} = useFurnitureStore();
+  const { getCategories } = useFurnitureStore();
 
   let addButton = <UnstyledButton className={classes.link}>
     <Plus />
@@ -91,7 +91,7 @@ function AddMenu({ setter }) {
     <Drawer
       opened={drawerOpened}
       position='right'
-      onClose={() => {getCategories(); setDrawerOpened(false)}}
+      onClose={() => { getCategories(); setDrawerOpened(false) }}
       title="Add furniture"
       padding="xl"
       size="lg"
@@ -223,7 +223,7 @@ export function ToolNavbar() {
               message: "Click and drag to measure areas",
             })
           }} />
-          <NavbarLink icon={ArrowBottomSquare} label="Snap to grid" onClick={() => {
+          <NavbarLink icon={GridDots} label="Snap to grid" onClick={() => {
             setSnap(!snap);
             cleanNotifications();
             showNotification({
